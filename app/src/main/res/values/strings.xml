@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Katalog Film</string>
+    <string name="title_movie">Judul Film</string>
+    <string name="releaseDate">2019</string>
+    <string name="description">Deskripsi</string>
+    <string name="nav_movies">Movies</string>
+    <string name="nav_tv_shows">TV Shows</string>
+    <string name="change_language_setting">Ganti pengaturan bahasa</string>
+    <string name="nav_favorite">Favorite</string>
+    <string name="like">Like</string>
+    <string name="favorite_added">Film berhasil ditambahkan ke favorit</string>
+    <string name="favorite_removed">Favorite removed</string>
+    <string name="search_hint">Movie title</string>
+
+    <string name="appwidget_text">Favorites Movie</string>
+    <string name="empty_text">NO DATA</string>
+
+
+    <string name="daily_reminder_title">Daily Reminder</string>
+    <string name="daily_reminder_text">Show ongoing movies</string>
+    <string name="subtext">Movie Catalogue</string>
+    <string name="notification_setting">Notification setting</string>
+    <string name="daily_notification">Daily notification</string>
+    <string name="release_notification">Release notification</string>
+    <string name="notifications_setting">Notifications Setting</string>
+    <string name="preference_file_key" translatable="false">preference_notification</string>
+    <bool name="notification_default">true</bool>
+
+
+    <!--region movies-->
+
+    <!--endregion-->
+
+    <!--region tv_shows-->
+
+    <!--endregion-->
+
+</resources>

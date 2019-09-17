@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="daily_reminder_title">Daily Reminder</string>
+    <string name="daily_reminder_text">Show ongoing movies</string>
+    <string name="subtext">Movie Catalogue</string>
+    <string name="notification_setting">Notification setting</string>
+    <string name="daily_notification">Daily notification</string>
+    <string name="release_notification">Release notification</string>
+    <string name="notifications_setting">Notifications Setting</string>
+</resources>
