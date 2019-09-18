@@ -1,9 +1,15 @@
 package com.example.moviecatalogue.models;
 
+import android.database.Cursor;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.example.moviecatalogue.database.movie.MovieContract;
+
 import org.json.JSONObject;
+
+import static com.example.moviecatalogue.database.movie.MovieContract.getColumnInt;
+import static com.example.moviecatalogue.database.movie.MovieContract.getColumnString;
 
 
 public class Movie implements Parcelable {
@@ -78,6 +84,13 @@ public class Movie implements Parcelable {
         this.description = description;
         this.releaseDate = releaseData;
         this.photo = photo;
+    }
+
+    public Movie(Cursor cursor) {
+        this.id = getColumnInt(cursor, MovieContract.MovieColumns._ID);
+        this.title = getColumnString(cursor, MovieContract.MovieColumns.TITLE);
+        this.releaseDate = getColumnString(cursor, MovieContract.MovieColumns.RELEASE_DATE);
+        this.photo = getColumnString(cursor, MovieContract.MovieColumns.PHOTO);
     }
 
     public String getReleaseDate() {

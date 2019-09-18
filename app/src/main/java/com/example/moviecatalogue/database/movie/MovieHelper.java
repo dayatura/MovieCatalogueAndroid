@@ -54,7 +54,6 @@ public class MovieHelper implements InstascesHelper {
     }
 
 
-
     public ArrayList<Movie> getAllMovies() {
         ArrayList<Movie> arrayList = new ArrayList<>();
         Cursor cursor = database.query(DATABASE_TABLE, null,
@@ -85,13 +84,19 @@ public class MovieHelper implements InstascesHelper {
     }
 
     @Override
-    public boolean isAny(Movie movie){
+    public boolean isAny(Movie movie) {
         Cursor cursor = database.rawQuery("SELECT * FROM " + DATABASE_TABLE + " WHERE title = \"" + movie.getTitle() + "\"", null);
-        return cursor.getCount() > 0;
+        if (cursor.getCount() > 0) {
+            cursor.close();
+            return true;
+        } else {
+            cursor.close();
+            return false;
+        }
 
     }
 
-    public long insertMovie(Movie movie) {
+    public long insert(Movie movie) {
         ContentValues args = new ContentValues();
         args.put(TITLE, movie.getTitle());
         args.put(DESCRIPTION, movie.getDescription());
@@ -100,7 +105,7 @@ public class MovieHelper implements InstascesHelper {
         return database.insert(DATABASE_TABLE, null, args);
     }
 
-    public int updateMovie(Movie movie) {
+    public int update(Movie movie) {
         ContentValues args = new ContentValues();
         args.put(TITLE, movie.getTitle());
         args.put(DESCRIPTION, movie.getDescription());
@@ -109,8 +114,52 @@ public class MovieHelper implements InstascesHelper {
         return database.update(DATABASE_TABLE, args, _ID + "= '" + movie.getId() + "'", null);
     }
 
-    public int deleteMovie(Movie movie) {
-        return database.delete(DATABASE_TABLE, _ID + " = '" + movie.getId() + "'", null);
+    public int delete(Movie movie) {
+        return database.delete(DATABASE_TABLE, TITLE + " = '" + movie.getTitle() + "'", null);
+    }
+
+    // for content provider purpose
+
+    public Cursor queryByIdProvider(String id) {
+        return database.query(DATABASE_TABLE, null
+                , _ID + " = ?"
+                , new String[]{id}
+                , null
+                , null
+                , null
+                , null);
+    }
+
+    public Cursor queryByTitleProvider(String title) {
+        return database.query(DATABASE_TABLE, null
+                , TITLE + " = ?"
+                , new String[]{title}
+                , null
+                , null
+                , null
+                , null);
+    }
+
+    public Cursor queryProvider() {
+        return database.query(DATABASE_TABLE
+                , null
+                , null
+                , null
+                , null
+                , null
+                , _ID + " ASC");
+    }
+
+    public long insertProvider(ContentValues values) {
+        return database.insert(DATABASE_TABLE, null, values);
+    }
+
+    public int updateProvider(String id, ContentValues values) {
+        return database.update(DATABASE_TABLE, values, _ID + " = ?", new String[]{id});
+    }
+
+    public int deleteProvider(String id) {
+        return database.delete(DATABASE_TABLE, _ID + " = ?", new String[]{id});
     }
 
 

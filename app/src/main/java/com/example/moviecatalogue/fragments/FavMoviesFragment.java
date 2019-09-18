@@ -92,12 +92,6 @@ public class FavMoviesFragment extends Fragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        movieViewModel.setMovies(movieType, getContext());
-        showLoading(true);
-    }
 
     private void showLoading(Boolean state) {
         if (state) {
