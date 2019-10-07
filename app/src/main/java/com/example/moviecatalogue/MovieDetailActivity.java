@@ -1,7 +1,9 @@
 package com.example.moviecatalogue;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,7 +22,9 @@ public class MovieDetailActivity extends AppCompatActivity {
     public static final String EXTRA_MOVIE = "extra_movie";
     public static final String EXTRA_TYPE = "extra_type";
 
+
     private Movie movie;
+    private Uri uri;
     private boolean liked;
     private InstascesHelper instascesHelper;
 
@@ -49,6 +53,8 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         instascesHelper.open();
         liked = instascesHelper.isAny(movie);
+
+        uri = getIntent().getData();
 
     }
 
@@ -110,7 +116,8 @@ public class MovieDetailActivity extends AppCompatActivity {
 //        String selection = MovieColumns.TITLE + " LIKE ?";
 //        String[] selectionArgs = {movie.getTitle()};
 //        db.delete(tableName, selection, selectionArgs);
-        instascesHelper.delete(movie);
+        uri = Uri.parse(uri + "/title/" + movie.getTitle());
+        getContentResolver().delete(uri,null, null);
 
         Toast.makeText(getApplicationContext(), getString(R.string.favorite_removed), Toast.LENGTH_SHORT).show();
     }

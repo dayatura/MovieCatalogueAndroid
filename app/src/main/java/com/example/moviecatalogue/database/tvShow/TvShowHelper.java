@@ -153,7 +153,7 @@ public class TvShowHelper implements InstascesHelper {
         return database.update(DATABASE_TABLE, values, _ID + " = ?", new String[]{id});
     }
 
-    public int deleteProvider(String id) {
-        return database.delete(DATABASE_TABLE, _ID + " = ?", new String[]{id});
+    public int deleteProvider(String title) {
+        return database.delete(DATABASE_TABLE, TITLE + " = ?", new String[]{title});
     }
 }

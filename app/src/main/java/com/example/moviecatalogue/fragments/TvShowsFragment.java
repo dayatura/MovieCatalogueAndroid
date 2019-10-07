@@ -23,6 +23,8 @@ import com.example.moviecatalogue.viewModel.MovieViewModel;
 
 import java.util.ArrayList;
 
+import static com.example.moviecatalogue.database.tvShow.TvShowContract.CONTENT_URI_TV;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,6 +81,7 @@ public class TvShowsFragment extends Fragment {
                 Intent movieIntent = new Intent(recyclerView.getContext(), MovieDetailActivity.class);
                 movieIntent.putExtra(MovieDetailActivity.EXTRA_MOVIE, data);
                 movieIntent.putExtra(MovieDetailActivity.EXTRA_TYPE, MOVIE_TYPE);
+                movieIntent.setData(CONTENT_URI_TV);
                 startActivity(movieIntent);
             }
         });

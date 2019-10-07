@@ -23,6 +23,8 @@ import com.example.moviecatalogue.viewModel.MovieViewModel;
 
 import java.util.ArrayList;
 
+import static com.example.moviecatalogue.database.movie.MovieContract.CONTENT_URI_MOVIE;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -80,6 +82,7 @@ public class SearchFragment extends Fragment {
                 Intent movieIntent = new Intent(recyclerView.getContext(), MovieDetailActivity.class);
                 movieIntent.putExtra(MovieDetailActivity.EXTRA_MOVIE, data);
                 movieIntent.putExtra(MovieDetailActivity.EXTRA_TYPE, movieType);
+                movieIntent.setData(CONTENT_URI_MOVIE);
                 startActivity(movieIntent);
             }
         });

@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.moviecatalogue.database.movie.MovieHelper;
 
@@ -27,7 +28,7 @@ public class MovieProvider extends ContentProvider {
         // content://com.example.moviecatalogue/movie/id
         sUriMatcher.addURI(AUTHORITY, TABLE_MOVIE + "/#", MOVIE_ID);
         // content://com.example.moviecatalogue/movie/title
-        sUriMatcher.addURI(AUTHORITY, TABLE_MOVIE + "/#", MOVIE_TITLE);
+        sUriMatcher.addURI(AUTHORITY, TABLE_MOVIE + "/title/*", MOVIE_TITLE);
 
 
     }
@@ -94,6 +95,8 @@ public class MovieProvider extends ContentProvider {
             case MOVIE_ID:
                 deleted = movieHelper.deleteProvider(uri.getLastPathSegment());
                 break;
+            case MOVIE_TITLE:
+                deleted = movieHelper.deleteProvider(uri.getLastPathSegment());
             default:
                 deleted = 0;
                 break;

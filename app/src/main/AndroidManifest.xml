@@ -60,15 +60,15 @@
             android:name=".providers.MovieProvider"
             android:authorities="com.example.moviecatalogue.movie"
             android:exported="true"
-            android:readPermission="com.dicoding.mynotesapp.READ_DATABASE"
-            android:writePermission="com.dicoding.mynotesapp.WRITE_DATABASE" />
+            android:readPermission="com.example.moviecatalogue.READ_DATABASE"
+            android:writePermission="com.example.moviecatalogue.WRITE_DATABASE" />
 
         <provider
             android:name=".providers.TvShowPorvider"
             android:authorities="com.example.moviecatalogue.tv"
             android:exported="true"
-            android:readPermission="com.dicoding.mynotesapp.READ_DATABASE"
-            android:writePermission="com.dicoding.mynotesapp.WRITE_DATABASE" />
+            android:readPermission="com.example.moviecatalogue.READ_DATABASE"
+            android:writePermission="com.example.moviecatalogue.WRITE_DATABASE" />
 
     </application>
 

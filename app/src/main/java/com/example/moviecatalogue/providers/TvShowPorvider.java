@@ -27,7 +27,7 @@ public class TvShowPorvider extends ContentProvider {
         // content://com.example.moviecatalogue/movie/id
         sUriMatcher.addURI(AUTHORITY, TABLE_TV + "/#", TV_ID);
         // content://com.example.moviecatalogue/movie/title
-        sUriMatcher.addURI(AUTHORITY, TABLE_TV + "/#", TV_TITLE);
+        sUriMatcher.addURI(AUTHORITY, TABLE_TV + "/title/*", TV_TITLE);
 
 
     }
@@ -94,6 +94,8 @@ public class TvShowPorvider extends ContentProvider {
             case TV_ID:
                 deleted = tvShowHelper.deleteProvider(uri.getLastPathSegment());
                 break;
+            case TV_TITLE:
+                deleted = tvShowHelper.deleteProvider(uri.getLastPathSegment());
             default:
                 deleted = 0;
                 break;

@@ -16,8 +16,8 @@ import com.example.moviecatalogue.R;
  */
 public class FavMovieWidget extends AppWidgetProvider {
 
-    public static final String EXTRA_ITEM = "com.dicoding.picodiploma.EXTRA_ITEM";
-    private static final String TOAST_ACTION = "com.dicoding.picodiploma.TOAST_ACTION";
+    public static final String EXTRA_ITEM = "com.example.moviecatalogue.EXTRA_ITEM";
+    private static final String TOAST_ACTION = "com.example.moviecatalogue.TOAST_ACTION";
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {

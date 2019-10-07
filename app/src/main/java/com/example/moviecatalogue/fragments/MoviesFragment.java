@@ -22,6 +22,8 @@ import com.example.moviecatalogue.viewModel.MovieViewModel;
 
 import java.util.ArrayList;
 
+import static com.example.moviecatalogue.database.movie.MovieContract.CONTENT_URI_MOVIE;
+
 public class MoviesFragment extends Fragment {
 
     public static final String MOVIE_TYPE = "movie";
@@ -71,6 +73,7 @@ public class MoviesFragment extends Fragment {
                 Intent movieIntent = new Intent(recyclerView.getContext(), MovieDetailActivity.class);
                 movieIntent.putExtra(MovieDetailActivity.EXTRA_MOVIE, data);
                 movieIntent.putExtra(MovieDetailActivity.EXTRA_TYPE, MOVIE_TYPE);
+                movieIntent.setData(CONTENT_URI_MOVIE);
                 startActivity(movieIntent);
             }
         });

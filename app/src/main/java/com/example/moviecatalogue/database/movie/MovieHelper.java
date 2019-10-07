@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.moviecatalogue.database.InstascesHelper;
 import com.example.moviecatalogue.models.Movie;
@@ -158,8 +159,8 @@ public class MovieHelper implements InstascesHelper {
         return database.update(DATABASE_TABLE, values, _ID + " = ?", new String[]{id});
     }
 
-    public int deleteProvider(String id) {
-        return database.delete(DATABASE_TABLE, _ID + " = ?", new String[]{id});
+    public int deleteProvider(String title) {
+        return database.delete(DATABASE_TABLE, TITLE + " = ?", new String[]{title});
     }
 
 

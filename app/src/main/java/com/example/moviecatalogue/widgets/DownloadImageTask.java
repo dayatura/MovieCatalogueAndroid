@@ -26,8 +26,7 @@ public class DownloadImageTask extends AsyncTask<SQLiteOpenHelper, Void, List<Bi
                 MovieContract.MovieColumns.PHOTO
         };
 
-        String tableName = helpers[0].getClass().getSimpleName() == "MoviesDbHelper" ?
-                MovieContract.TABLE_MOVIE : TvShowContract.TABLE_TV;
+        String tableName = MovieContract.TABLE_MOVIE ;
 
 
         Cursor cursor = db.query(
